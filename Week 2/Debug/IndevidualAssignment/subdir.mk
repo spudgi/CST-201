@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../IndevidualAssignment/DoublyPalindrome.cpp \
 ../IndevidualAssignment/SinglyPalindrome.cpp 
 
 OBJS += \
+./IndevidualAssignment/DoublyPalindrome.o \
 ./IndevidualAssignment/SinglyPalindrome.o 
 
 CPP_DEPS += \
+./IndevidualAssignment/DoublyPalindrome.d \
 ./IndevidualAssignment/SinglyPalindrome.d 
 
 
