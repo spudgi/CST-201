@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/AppendNodeSGY.cpp \
 ../src/InsertNodeSGY.cpp \
 ../src/RemoveNodeSGY.cpp \
 ../src/singlyLinkedSGY.cpp 
 
 OBJS += \
+./src/AppendNodeSGY.o \
 ./src/InsertNodeSGY.o \
 ./src/RemoveNodeSGY.o \
 ./src/singlyLinkedSGY.o 
 
 CPP_DEPS += \
+./src/AppendNodeSGY.d \
 ./src/InsertNodeSGY.d \
 ./src/RemoveNodeSGY.d \
 ./src/singlyLinkedSGY.d 
