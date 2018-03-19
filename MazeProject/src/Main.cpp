@@ -19,7 +19,7 @@ int main () {
 	string line;
 
 	int i=0;
-	ifstream file ("input_file.txt");
+	ifstream file ("MazeProject\src\input_file.txt");
 	if (file.is_open()){
 		while (!file.eof()){
 			getline(file,line);
@@ -99,13 +99,13 @@ string blockArray[11][10] = {
 						} else {
 							if (blockArray[i][j] == start) {
 								if (h == 1){
-									myfile << "s";
+									myfile << "S";
 								} else{
 									myfile << "1";
 								}
 							} else if (blockArray[i][j] == free) {
 								if (h == 1){
-									myfile << "f";
+									myfile << "F";
 								} else{
 									myfile << "1";
 								}
