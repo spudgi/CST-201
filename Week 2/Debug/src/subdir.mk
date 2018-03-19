@@ -4,13 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/singlyLinked.cpp 
+../src/InsertNodeSGY.cpp \
+../src/RemoveNodeSGY.cpp \
+../src/singlyLinkedSGY.cpp 
 
 OBJS += \
-./src/singlyLinked.o 
+./src/InsertNodeSGY.o \
+./src/RemoveNodeSGY.o \
+./src/singlyLinkedSGY.o 
 
 CPP_DEPS += \
-./src/singlyLinked.d 
+./src/InsertNodeSGY.d \
+./src/RemoveNodeSGY.d \
+./src/singlyLinkedSGY.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
