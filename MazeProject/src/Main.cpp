@@ -11,8 +11,73 @@
 #include <string>
 #include <stdio.h>
 #include <string.h>
+#include <stack>
+#include <iomanip>
 
 using namespace std;
+
+class Coord {
+public:
+Coord(int rr, int cc) : m_r(rr), m_c(cc) {}
+int r() const { return m_r; }
+int c() const { return m_c; }
+private:
+int m_r;
+int m_c;
+};
+int minimum(int a[],int size) {
+    int small=a[0];
+    for(int i=0;i<size;i++)
+        if(a[i]<small)
+            small=a[i];
+    return small;
+}
+
+void determineDistances(const char maze[][10], int sr, int sc, int dist[][10]) {
+    stack<Coord> coordStack;
+    coordStack.push(Coord(sr,sc));
+    for(int i=0;i<10;i++)
+        for(int j=0;j<10;j++)
+        {
+            dist[i][j]=99;
+        }
+        dist[sr][sc]=0;
+        int distarr[11];
+        int min;
+        int currval;
+        while (!coordStack.empty()) {
+            Coord inuse = coordStack.top();
+            coordStack.pop();
+            const int row = inuse.r();
+            const int col = inuse.c();
+
+            cout<<"row"<<row<<"col"<<col<<endl;
+            distarr[0]=dist[row-1][col];    //      Up
+            distarr[1]=dist[row+1][col];    //      Down
+            distarr[2]=dist[row][col-1];    //      Left
+            distarr[3]=dist[row][col+1];    //      Right
+            min=minimum(distarr,11);
+
+            if(dist[row][col]>min+1)
+            dist[row][col]=min+1;
+            currval=dist[row][col];
+            if ((maze[row-1][col] == '.')&&(dist[row-1][col]>(currval+1))) {
+            	dist[row-1][col]=currval+1;
+            	coordStack.push(Coord(row+1,col));
+            }
+             if (maze[row+1][col] == '.'&&(dist[row+1][col]>(currval+1))) {
+            	 coordStack.push(Coord(row+1,col));
+             }
+            if (maze[row][col+1] == '.'&&(dist[row][col+1]>(currval+1))) {
+            	dist[row][col+1]=currval+1;
+            	coordStack.push(Coord(row,col+1));
+            }
+            if (maze[row][col-1] == '.'&&(dist[row][col-1]>(currval+1))) {
+            	dist[row][col-1]=dist[row][col]+1;
+            	coordStack.push(Coord(row,col-1));
+            }
+        }
+}
 
 int main () {
 	string txt[12];
@@ -126,6 +191,5 @@ string blockArray[11][10] = {
     myfile.close();
 
     return 0;
+
 }
-
-
